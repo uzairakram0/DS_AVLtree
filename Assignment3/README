@@ -1,0 +1,41 @@
+UZAIR AKRAM
+ASSIGNMENT2
+avl.cpp
+function: AvlNode* insert( const int & info, AvlNode * & root )
+The function inser is a recursive function that fills the values recursively into each node. The function was eddited to sort the values entered, smaller to the left of each node and larger to the right. Additionally I added a functionality to calculate the height of each node as the values were enetered, it makes uses of auxilary functions height() and max(). At the end there is a function call to balance the tree. The function return type was changed to AvlNode* so that the function can be used to assign values. The assignment made it much easier to calculate the height of each node.
+
+function: void remove( const int & info, AvlNode * & root )
+The function remove deletes a node from the tree. At first it finds the node to be removed and then it uses 4 different cases to remove the node. Case1: if the removal node has both the right and the left child, the function replces the nodes value with its left child and then continues to move to the left updating the values as it moves, till it reaches a node which doesn't have both a left and a right subtree. It then proceeds to apply a different case for the removal of this final node. Case2: The removal node only has a left subtree, the parent of the node points to the left subtree bypassing that node. Case3: The removal node only has a right subtree the parent pointer is updated to the the right subtree excluding the removal node. Case4: the removal node has no subtrees the parent pointer is changed to null.
+
+function: AvlNode* rotateRight(AvlNode *& node)
+The function implements right rotation, rotating the node with its leftchild. It then recalculates the heights making use of auxillary functions height() and max().
+
+function: AvlNode* rotateLeft(AvlNode *& node)
+The function implements left rotation, rotating the node with it's right child. It then recalculates the heights making use of auxillary functions height() and max().
+
+function: void doubleRight(AvlNode *& node)
+The function implements double right rotation making use of functions: AvlNode* rotateRight(AvlNode *& node) and AvlNode* rotateLeft(AvlNode *& node). It left rotates the left child of the node and then right rotates the node itself.
+
+function: void doubleLeft(AvlNode *& node)
+The function implements double left rotation making use of functions: AvlNode* rotateRight(AvlNode *& node) and AvlNode* rotateLeft(AvlNode *& node). It right rotates the right child of the node and then left rotates the node itself.
+
+function: void balance(AvlNode *& node)
+The function balances the tree by first checking if there is an Imbalance in the tree and checking if the tree is imbalnced towards the left subttree or the right subtree. It then uses rotations to balance the tree.
+
+function: int height(AvlNode* node)
+Auxilary function to find height, It is used to avoid seq fault and unpredictable memory values when the node is null.
+
+function: int max(int a, int b)
+Auxilary function return the greater of the two integers.
+
+BONUS
+isAvl.cpp(partial extra credit)
+The isAvl.cpp checks if the tree entered is an Avl tree or not. The input is done the same way as the input of Avl.cpp. The balance function only checks if there is an imbalance but doesn't correct the imbalance.
+
+treeAvl.cpp
+The theAvl.cpp checks if the tree entered is an Avl tree or not. The input is a file in a different fomat, the file contains a tree in the fomat of the output of the avl.cpp, the integer values however must be seperated by space. The balance function only checks if there is an imbalance but doesn't correct the imbalance.
+
+***ERRORS***
+treeAvl.cpp
+There is an error in the treeAvl.cpp a segfault.
+
